@@ -12,27 +12,56 @@
 	}
 
 	function updateClock ( ){
-	  var currentTime = new Date ( );
-	  var currentHours = currentTime.getHours ( );
-	  var currentMinutes = currentTime.getMinutes ( );
-	  var currentSeconds = currentTime.getSeconds ( );
+	days = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");	
+	var currentTime = new Date ( );
+	var currentHours = currentTime.getHours ( );
+	var currentMinutes = currentTime.getMinutes ( );
+	var currentSeconds = currentTime.getSeconds ( );
+	var currentDay = currentTime.getDay ( );
+	var today = new Date();
+	var dd = currentTime.getDate();
+	var mm = currentTime.getMonth()+1; //January is 0!
+	var yyyy = currentTime.getFullYear();
+
+	if(dd<10) {
+    dd='0'+dd
+	} 
+
+	if(mm<10) {
+		mm='0'+mm
+	} 
+
+	today = mm+'/'+dd+'/'+yyyy;
+
 	  
-	  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
-	  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
-	  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 	  
-	  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
-	  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+	currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+	currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+	currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+	  
+	var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + days[currentDay] + "," + today;
+	document.getElementById("clock").firstChild.nodeValue = currentTimeString;
 	}
+	
+	
+	
+	
+	
+	
 </script>
+
+
 </head>
 <body onload="updateClock(); setInterval('updateClock()', 1000 )">
 
-<div style="clear: both;"> </div>
-
-<div style="width: 10em; text-align: center; margin: 20px auto;">
-  <span id="clock">&nbsp;</span>
+<div id = "clock" class = "Date">
 </div>
 
 </body>
 </html>
+
+
+
+
+
+
