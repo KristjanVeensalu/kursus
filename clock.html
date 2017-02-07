@@ -1,5 +1,7 @@
 
 <!DOCTYPE html>
+
+
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css" />
@@ -31,18 +33,16 @@
 		mm='0'+mm
 	} 
 
-	today = mm+'/'+dd+'/'+yyyy;
-
-	  
-	  
+	today = dd+'/'+mm+'/'+yyyy;
+	
 	currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
 	currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+	currentHours = ( currentHours < 10 ? "0" : "" ) + currentHours;
 	currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 	  
 	var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + days[currentDay] + "," + today;
 	document.getElementById("clock").firstChild.nodeValue = currentTimeString;
 	}
-	
 	
 	
 	
